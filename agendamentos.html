@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Agendar Horário</title>
+</head>
+
+<body>
+
+  <!--<div class="breadcrumb">
+    <p>
+      <a href="index.html">Home</a>
+      >
+      <a href="agendamentos.html">Agendar</a>
+    </p>
+  </div>-->
+
+  <div class="calendar">
+    <div class="header">
+      <button id="prev" class="nav-btn">❮</button>
+      <span id="month-year">Janeiro</span>
+      <button id="next" class="nav-btn">❯</button>
+    </div>
+    <div class="weekdays">
+      <span>dom</span>
+      <span>seg</span>
+      <span>ter</span>
+      <span>qua</span>
+      <span>qui</span>
+      <span>sex</span>
+      <span>sab</span>
+    </div>
+    <div id="days" class="days"></div>
+  </div>
+
+  <div class="container">
+    <p class="resultDia"></p>
+    <div id="time-slots"></div>
+  </div>
+
+  <div id="confirmacao">
+
+    <button class="exit" onclick="fechar()">
+
+      <img src="images/exit.svg" alt="">
+
+    </button>
+
+    <div>
+      <h1>Confirme o agendamento</h1>
+      <p class="confirmacaoHorario"></p>
+      <input type="text" name="nome" id="nome" placeholder="Digite o seu nome">
+
+      <p id="concluido">
+        
+        Treino marcado com Êxito!!!
+
+        <img src="images/concluido.svg" alt="">
+      
+      </p>
+      
+
+      <button type="submit" id="agendar">Agendar</button>
+    </div>
+
+  </div>
+
+  <script src="scripts.js"></script>
+
+</body>
+
+</html>

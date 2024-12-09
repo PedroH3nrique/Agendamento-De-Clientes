@@ -1,0 +1,330 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-image:linear-gradient(to right, #ffffff, #c9c9c9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.breadcrumb{
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 15px;
+  color: red;
+}
+
+.breadcrumb a{
+  color: white;
+}
+
+.exit {
+  top: 0;
+  right: 0;
+  position: absolute;
+  border: none;
+  outline: none;
+  border-radius: 50%;
+  position: absolute;
+  padding: 5px;
+  cursor: pointer;
+  margin: 7px;
+  background-color: #5151516c;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.exit:hover{
+  background-color: #515151;
+  transition: 0.3s ease-in-out;
+}
+
+.exit img {
+  margin: 0;
+  width: 18px;
+}
+
+
+/*agendamentos.html*/
+/*agendamentos.html*/
+/*agendamentos.html*/
+
+.calendar {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.nav-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-transform: uppercase;
+  color: gray;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.days span {
+  display: inline-block;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.days span:hover {
+  background: #f0f0f0;
+}
+
+.done-btn {
+  background: #ff5252;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.done-btn:hover {
+  background: red;
+}
+
+.days span.disabled {
+  color: #ccc;
+  pointer-events: none;
+}
+
+.days span.selectable {
+  cursor: pointer;
+  background-color: #f9f9f9;
+  transition: background-color 0.3s ease;
+}
+
+.days span.selectable:hover {
+  color: black;
+  background-color: #4caf4f42;
+}
+
+.days span.selected {
+  background-color: #4caf50;
+  color: white;
+  font-weight: bold;
+}
+
+.horario{
+  background-color: white;
+  padding: 15px 45px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.horario h1{
+  text-align: center;
+}
+
+.divDias,
+.divHoras{
+  align-items: center;
+
+  display: flex;
+}
+
+/*.horario{
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.horario .ok{
+  margin: 15px 0;
+  width: 100%;
+  background-color: #4caf50;
+  color: white;
+  border-radius: 60px;
+  border: none;
+  outline: none;
+  padding: 5px 15px;
+  cursor: pointer;
+}
+
+.horario .ok:hover{
+  background-color: #328534;
+}
+
+#hora_agen{
+  background-color: white;
+  border: 1px solid black;
+  color: black;
+  margin: 0;
+  margin-left: 10px;
+  width: fit-content;
+  padding: 5px 10px;
+  height: fit-content;
+}
+
+.horario form{
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+.horario form input{
+  width: 300px;
+  height: 30px;
+  padding: 5px 12px;
+  border-radius: 6px;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  border: 2px solid #F56567;
+}
+
+.horario form input:focus{
+  box-shadow: 0 0 0 transparent;
+  transition: 0.3s ease-in-out;
+}*/
+
+.container {
+  gap: 50px;
+  overflow-y: scroll;
+  height: 75%;
+  width: 360px;
+  padding: 15px 30px;
+  border-radius: 15px;
+  background-color: white;
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.time-slot {
+  width: 150px;
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin: 5px;
+  cursor: pointer;
+}
+.time-slot.selected {
+  background-color: #007bff;
+  color: white;
+}
+
+#confirmacao{
+  display: none;
+  position: relative;
+  background-color: white;
+  width: 450px;
+  padding: 20px 20px;
+  border-radius: 6px;
+}
+
+#confirmacao h1{
+  font-size: 30px;
+  border-bottom: 1px solid black;
+}
+
+#confirmacao div{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#confirmacao div input{
+  padding: 7px;
+  outline: 3px solid transparent;
+  border-radius: 7px;
+}
+
+#confirmacao div input:focus{
+  outline: 3px solid #ff5252;
+  border: 2px solid transparent;
+}
+
+#confirmacao div button{
+  padding: 7px;
+  background-color: #ff5252;
+  cursor: pointer;
+  color: white;
+  border-radius: 65px;
+  border: none;
+}
+
+#confirmacao div button:hover{
+  background-color: red;
+  transition: 0.4s ease-in-out;
+}
+
+#concluido{
+  display: none;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+#concluido img{
+  width: 150px;
+}
+
+
+@media screen and (max-width: 390px) {
+
+  .inicial main header h1{
+    font-size: 20px;
+  }
+
+  .inicial main header a {
+    height: 25px;
+    width: 140px;
+    cursor: pointer;
+    font-size: 13px;
+  }
+  
+}
