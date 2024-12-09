@@ -314,6 +314,42 @@ body {
 }
 
 
+@media screen and (max-width: 1132px) {
+  
+  .container{
+    position: inherit;
+    margin-top: 50px;
+  }
+
+  body{
+    padding: 50px 0 0 0;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  #confirmacao{
+    display: none;
+    position: relative;
+    background-color: white;
+    width: 360px;
+    padding: 20px 20px;
+    border-radius: 6px;
+  }
+  
+  #confirmacao h1{
+    font-size: 25px;
+    border-bottom: 1px solid black;
+  }
+  
+  #confirmacao div{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
 @media screen and (max-width: 390px) {
 
   .inicial main header h1{

@@ -101,6 +101,8 @@ function fechar(){
     const exitBtn = document.getElementById('exit')
     const confirmacao = document.getElementById('confirmacao')
     const concluido = document.getElementById('concluido')
+    const container = document.getElementsByClassName('container')[0]
+    container.style.display = 'flex'
     concluido.style.display = 'none'
     calendario.style.display = 'block'
     confirmacao.style.display = 'none'
@@ -157,6 +159,8 @@ timeSlots.forEach(time => {
         const confirmacao = document.getElementById('confirmacao');
         const confirmacaoHorario = document.getElementsByClassName('confirmacaoHorario')[0];
         const calendar = document.getElementsByClassName('calendar')[0];
+        const container = document.getElementsByClassName('container')[0]
+        container.style.display = 'none'
         calendar.style.display = 'none';
         confirmacao.style.display = 'block';
 
