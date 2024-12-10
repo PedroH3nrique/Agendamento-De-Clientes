@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/forms.css">
-    <title>Registrar</title>
+    <title>ADMIN</title>
 </head>
 <body>
 
@@ -16,19 +16,18 @@
         </p>
     </div>
 
-    <form action="" method="POST">
+    <form action="process_login.php" method="POST">
 
         <img src="images/image-profile.png" alt="">
 
         <h1>Olá ADMIN</h1>
 
         <div class="inputs">
-            <input type="hidden" name="login_nome" value="1">
-            <input type="text" name="nome" placeholder="Nome" required>
+            <input type="text" name="nome" id="nome" placeholder="Nome" required>
 
             <div class="inputSenha">
                 <input type="password" name="senha" id="senha" placeholder="Senha" required>
-                <button type="button" onclick="verSenha()"><img id="imgOlho" src="images/vendoSenha.svg" alt=""></button>
+                <button type="button" onclick="verSenha()"><img id="imgOlho" src="images/vendoSenha.svg" alt="Ver Senha"></button>
             </div>
         </div>
 

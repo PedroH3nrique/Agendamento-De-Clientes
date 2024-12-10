@@ -175,8 +175,15 @@ timeSlots.forEach(time => {
 });
 
 const agendar = document.getElementById('agendar');
+const nome = document.getElementById('nome');
+
 agendar.addEventListener("click", () => {
-    const nome = document.getElementById('nome')
+    // Verifica se o campo nome está vazio
+    if (nome.value.trim().length === 0) {
+        alert("Por favor, insira um nome."); // Mensagem de erro
+        return; // Impede a execução do restante do código
+    }
+
     const concluido = document.getElementById('concluido');
     concluido.style.display = 'flex';
 
