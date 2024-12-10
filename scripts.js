@@ -53,13 +53,14 @@ function renderCalendar(month, year) {
                     }
                     selectedDays = []; // Limpa o array de dias selecionados
                 }
-
+            
                 // Seleciona o novo dia
                 daySpan.classList.add('selected');
                 selectedDays.push(day); // Adiciona o novo dia ao array
-
-                // Atualiza o resultado na resultDia
-                resultDia.innerHTML = `Selecione um horário para o dia <b>${day} de ${months[month]} de ${year}.</b>`;
+            
+                const timeSlotsContainer = document.getElementById("time-slots");
+                timeSlotsContainer.style.display = 'block'; // Mostra o contêiner de horários
+                resultDia.innerHTML = `Selecione um horário para o dia <b style="color: #4caf50">${day} de ${months[month]} de ${year}.</b>`;
             });
         }
 
@@ -167,7 +168,7 @@ timeSlots.forEach(time => {
         const monthName = months[currentMonth]; // Certifique-se de que 'months' e 'currentMonth' estão definidos
         const year = currentYear; // Certifique-se de que 'currentYear' está definido
         const days = selectedDays.join(', '); // Certifique-se de que 'selectedDays' está definido
-        confirmacaoHorario.innerHTML = `Treino marcado para o dia <b>${days} de ${monthName} de ${year}</b> às <b>${time}</b>`;
+        confirmacaoHorario.innerHTML = `Treino marcado para o dia <b style="color: #4caf50">${days} de ${monthName} de ${year}</b> às <b style="color: #4caf50">${time}</b>`;
     });
 
     timeSlotsContainer.appendChild(timeSlotElement);

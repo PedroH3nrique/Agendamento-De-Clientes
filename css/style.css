@@ -253,7 +253,7 @@ body {
   cursor: pointer;
 }
 .time-slot.selected {
-  background-color: #007bff;
+  background-color: #4caf50;
   color: white;
 }
 
@@ -284,13 +284,13 @@ body {
 }
 
 #confirmacao div input:focus{
-  outline: 3px solid #ff5252;
+  outline: 3px solid #4caf50;
   border: 2px solid transparent;
 }
 
 #confirmacao div button{
   padding: 7px;
-  background-color: #ff5252;
+  background-color: #4caf50;
   cursor: pointer;
   color: white;
   border-radius: 65px;
@@ -298,7 +298,7 @@ body {
 }
 
 #confirmacao div button:hover{
-  background-color: red;
+  background-color: #287c2b;
   transition: 0.4s ease-in-out;
 }
 
