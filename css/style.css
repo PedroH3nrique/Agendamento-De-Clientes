@@ -33,6 +33,15 @@ body {
   color: white;
 }
 
+.admin{
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 5px;
+  font-size: 12px;
+  color: rgb(95, 95, 95);
+}
+
 .exit {
   top: 0;
   right: 0;
