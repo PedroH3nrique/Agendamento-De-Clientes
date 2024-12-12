@@ -177,7 +177,7 @@ timeSlots.forEach(time => {
 const agendar = document.getElementById('agendar');
 const nome = document.getElementById('nome');
 
-agendar.addEventListener("click", () => {
+/*agendar.addEventListener("click", () => {
     // Verifica se o campo nome está vazio
     if (nome.value.trim().length === 0) {
         alert("Por favor, insira um nome."); // Mensagem de erro
@@ -215,5 +215,101 @@ agendar.addEventListener("click", () => {
 
         // Abra a URL em uma nova aba
         window.open(calendarUrl, '_blank');
+    }
+});*/
+
+/*agendar.addEventListener("click", (event) => {
+    event.preventDefault(); // Impede o envio padrão do formulário
+
+    // Verifica se o campo nome está vazio
+    if (nome.value.trim().length === 0) {
+        alert("Por favor, insira um nome.");
+        return;
+    }
+
+    // Obtenha o dia, mês e ano selecionados
+    const selectedDay = selectedDays[0];
+    const month = currentMonth + 1;
+    const year = currentYear;
+
+    // Obtenha o horário selecionado
+    const selectedTimeSlot = document.querySelector(".time-slot.selected");
+    const time = selectedTimeSlot ? selectedTimeSlot.textContent : null;
+
+    if (time) {
+        const startDate = new Date(year, currentMonth, selectedDay, parseInt(time.split(':')[0]), parseInt(time.split(':')[1]));
+        
+        // Enviar dados para o servidor
+        fetch('seu_endpoint_de_agendamento', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                nome_agen: nome.value,
+                data_agen: startDate.toISOString()
+            }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Sucesso:', data);
+            // Aqui você pode adicionar lógica para mostrar uma mensagem de sucesso
+        })
+        .catch((error) => {
+            console.error('Erro:', error);
+        });
+    }
+});*/
+
+agendar.addEventListener("click", (event) => {
+    event.preventDefault(); // Impede o envio padrão do formulário
+
+    // Verifica se o campo nome está vazio
+    if (nome.value.trim().length === 0) {
+        alert("Por favor, insira um nome."); // Mensagem de erro
+        return; // Impede a execução do restante do código
+    }
+
+    const concluido = document.getElementById('concluido');
+    concluido.style.display = 'flex';
+
+    // Obtenha o dia, mês e ano selecionados
+    const selectedDay = selectedDays[0]; // Supondo que apenas um dia é selecionado
+    const month = currentMonth + 1; // Adiciona 1 porque os meses começam em 0
+    const year = currentYear;
+
+    // Obtenha o horário selecionado
+    const selectedTimeSlot = document.querySelector(".time-slot.selected");
+    const time = selectedTimeSlot ? selectedTimeSlot.textContent : null;
+
+    if (time) {
+        // Construa a data e hora de início e fim
+        const startDate = new Date(year, currentMonth, selectedDay, parseInt(time.split(':')[0]), parseInt(time.split(':')[1]));
+        const endDate = new Date(startDate);
+        endDate.setHours(endDate.getHours() + 1); // Define a duração do evento como 1 hora
+
+        // Formate as datas para o formato necessário
+        const startDateString = startDate.toISOString().replace(/-|:|\.\d{3}/g, "").slice(0, 15) + "Z"; // YYYYMMDDTHHMMSSZ
+        const endDateString = endDate.toISOString().replace(/-|:|\.\d{3}/g, "").slice(0, 15) + "Z"; // YYYYMMDDTHHMMSSZ
+
+        // Título e descrição do evento
+        const title = "Treino com o Personal Donizete"; // Você pode personalizar isso
+        const description = `Agendamento de treino para ${nome.value} no StudioBox do personal Donizete`; // Você pode personalizar isso
+
+        // Construa a URL do Google Calendar
+        const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${startDateString}/${endDateString}&details=${encodeURIComponent(description)}`;
+
+        // Adiciona um campo oculto ao formulário para enviar a data
+        const hiddenInput = document.createElement('input');
+        hiddenInput.type = 'hidden';
+        hiddenInput.name = 'data_agen';
+        hiddenInput.value = startDate.toISOString(); // Formato ISO para o banco de dados
+        document.querySelector('form').appendChild(hiddenInput);
+
+        // Abra a URL em uma nova aba
+        window.open(calendarUrl, '_blank');
+
+        // Agora você pode submeter o formulário
+        document.querySelector('form').submit();
     }
 });
