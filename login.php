@@ -1,4 +1,6 @@
 <?php
+session_start(); // Inicia a sessão
+
 // Conexão com o banco de dados
 $servername = "localhost"; // ou o endereço do seu servidor
 $username = "root"; // seu usuário do banco de dados
@@ -28,9 +30,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verifica se o usuário existe
     if ($result->num_rows > 0) {
         // Login bem-sucedido
-        echo "Login bem-sucedido! Bem-vindo, " . htmlspecialchars($nome) . "!";
-        // Aqui você pode redirecionar para outra página ou iniciar uma sessão
-        header('Location: admin_page.php');
+        $_SESSION['loggedin'] = true; // Define a variável de sessão
+        $_SESSION['nome'] = $nome; // Armazena o nome do usuário na sessão
+        header('Location: admin_page.php'); // Redireciona para a página de admin
+        exit; // Encerra o script após o redirecionamento
     } else {
         // Login falhou
         echo "Nome ou senha incorretos.";

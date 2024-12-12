@@ -7,6 +7,14 @@ $dbname = "agenda";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
+session_start(); // Inicia a sessão
+
+// Verifica se o usuário está logado
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+    header('Location: login.html'); // Redireciona para a página de login
+    exit; // Encerra o script
+}
+
 // Verifica a conexão
 if ($conn->connect_error) {
     die("Conexão falhou: " . $conn->connect_error);
