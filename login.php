@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Login bem-sucedido
         echo "Login bem-sucedido! Bem-vindo, " . htmlspecialchars($nome) . "!";
         // Aqui você pode redirecionar para outra página ou iniciar uma sessão
-        header('Location: admin_page.html');
+        header('Location: admin_page.php');
     } else {
         // Login falhou
         echo "Nome ou senha incorretos.";
