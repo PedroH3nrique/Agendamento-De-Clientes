@@ -15,7 +15,7 @@ const months = [
 var currentMonth = new Date().getMonth();
 var currentYear = new Date().getFullYear();
 var today = new Date(); // Data atual
-today.setHours(0, 0, 0, 0); // Zera as horas para comparação correta
+today.setHours(0, 0, 0, 0); 
 var selectedDays = []; // Array para armazenar os dias selecionados
 
 function renderCalendar(month, year) {
@@ -37,7 +37,7 @@ function renderCalendar(month, year) {
         daySpan.textContent = day;
 
         const currentDate = new Date(year, month, day);
-        currentDate.setHours(0, 0, 0, 0); // Zera as horas para comparação correta
+        currentDate.setHours(0, 0, 0, 0); 
 
         // Verifica se o dia é passado
         if (currentDate < today) {
@@ -101,13 +101,13 @@ function fechar(){
     const calendario = document.getElementsByClassName('calendar')[0]
     const exitBtn = document.getElementById('exit')
     const confirmacao = document.getElementById('confirmacao')
-    const concluido = document.getElementById('concluido')
     const container = document.getElementsByClassName('container')[0]
+
     container.style.display = 'flex'
-    concluido.style.display = 'none'
     calendario.style.display = 'block'
     confirmacao.style.display = 'none'
     
+    location.reload(true);
 }
 
 function verSenha() {
@@ -148,27 +148,36 @@ timeSlots.forEach(time => {
     timeSlotElement.textContent = time;
 
     timeSlotElement.addEventListener("click", () => {
-        // Remove the "selected" class from any previously selected time slot
+        // Remove a classe "selected" de qualquer horário previamente selecionado
         const selectedTimeSlot = document.querySelector(".time-slot.selected");
         if (selectedTimeSlot) {
             selectedTimeSlot.classList.remove("selected");
         }
-
-        // Add the "selected" class to the clicked time slot
+    
+        // Adiciona a classe "selected" ao horário clicado
         timeSlotElement.classList.add("selected");
-
+    
         const confirmacao = document.getElementById('confirmacao');
-        const confirmacaoHorario = document.getElementsByClassName('confirmacaoHorario')[0];
+        const data = document.getElementsByClassName('data')[0];
+        const horas = document.getElementsByClassName('horas')[0];
         const calendar = document.getElementsByClassName('calendar')[0];
-        const container = document.getElementsByClassName('container')[0]
-        container.style.display = 'none'
+        const container = document.getElementsByClassName('container')[0];
+        container.style.display = 'none';
         calendar.style.display = 'none';
         confirmacao.style.display = 'block';
-
-        const monthName = months[currentMonth]; // Certifique-se de que 'months' e 'currentMonth' estão definidos
-        const year = currentYear; // Certifique-se de que 'currentYear' está definido
-        const days = selectedDays.join(', '); // Certifique-se de que 'selectedDays' está definido
-        confirmacaoHorario.innerHTML = `Treino marcado para o dia <b style="color: #4caf50">${days} de ${monthName} de ${year}</b> às <b style="color: #4caf50">${time}</b>`;
+    
+        const monthName = months[currentMonth]; // Nome do mês
+        const year = currentYear; // Ano
+        const days = selectedDays.join(', '); // Dias selecionados
+        const selectedTime = time; // Horário selecionado
+    
+        // Atualiza os elementos <p> com os dados
+        data.innerHTML = `Data: <b style="color: #4caf50">${days}</b> de <b style="color: #4caf50">${monthName}</b> de <b style="color: #4caf50">${year}</b>`;
+        horas.innerHTML = `Horário: <b style="color: #4caf50">${selectedTime}</b>`;
+    
+        // Preenche os campos ocultos com os dados
+        document.querySelector('input[name="data_agen"]').value = `${year}-${currentMonth + 1}-${selectedDays[0]}`; // Formato YYYY-MM-DD
+        document.querySelector('input[name="horario_agen"]').value = selectedTime; // Horário selecionado
     });
 
     timeSlotsContainer.appendChild(timeSlotElement);
@@ -176,90 +185,6 @@ timeSlots.forEach(time => {
 
 const agendar = document.getElementById('agendar');
 const nome = document.getElementById('nome');
-
-/*agendar.addEventListener("click", () => {
-    // Verifica se o campo nome está vazio
-    if (nome.value.trim().length === 0) {
-        alert("Por favor, insira um nome."); // Mensagem de erro
-        return; // Impede a execução do restante do código
-    }
-
-    const concluido = document.getElementById('concluido');
-    concluido.style.display = 'flex';
-
-    // Obtenha o dia, mês e ano selecionados
-    const selectedDay = selectedDays[0]; // Supondo que apenas um dia é selecionado
-    const month = currentMonth + 1; // Adiciona 1 porque os meses começam em 0
-    const year = currentYear;
-
-    // Obtenha o horário selecionado
-    const selectedTimeSlot = document.querySelector(".time-slot.selected");
-    const time = selectedTimeSlot ? selectedTimeSlot.textContent : null;
-
-    if (time) {
-        // Construa a data e hora de início e fim
-        const startDate = new Date(year, currentMonth, selectedDay, parseInt(time.split(':')[0]), parseInt(time.split(':')[1]));
-        const endDate = new Date(startDate);
-        endDate.setHours(endDate.getHours() + 1); // Define a duração do evento como 1 hora
-
-        // Formate as datas para o formato necessário
-        const startDateString = startDate.toISOString().replace(/-|:|\.\d{3}/g, "").slice(0, 15) + "Z"; // YYYYMMDDTHHMMSSZ
-        const endDateString = endDate.toISOString().replace(/-|:|\.\d{3}/g, "").slice(0, 15) + "Z"; // YYYYMMDDTHHMMSSZ
-
-        // Título e descrição do evento
-        const title = "Treino com o Personal Donizete"; // Você pode personalizar isso
-        const description = `Agendamento de treino para ${nome.value} no StudioBox do personal Donizete`; // Você pode personalizar isso
-
-        // Construa a URL do Google Calendar
-        const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${startDateString}/${endDateString}&details=${encodeURIComponent(description)}`;
-
-        // Abra a URL em uma nova aba
-        window.open(calendarUrl, '_blank');
-    }
-});*/
-
-/*agendar.addEventListener("click", (event) => {
-    event.preventDefault(); // Impede o envio padrão do formulário
-
-    // Verifica se o campo nome está vazio
-    if (nome.value.trim().length === 0) {
-        alert("Por favor, insira um nome.");
-        return;
-    }
-
-    // Obtenha o dia, mês e ano selecionados
-    const selectedDay = selectedDays[0];
-    const month = currentMonth + 1;
-    const year = currentYear;
-
-    // Obtenha o horário selecionado
-    const selectedTimeSlot = document.querySelector(".time-slot.selected");
-    const time = selectedTimeSlot ? selectedTimeSlot.textContent : null;
-
-    if (time) {
-        const startDate = new Date(year, currentMonth, selectedDay, parseInt(time.split(':')[0]), parseInt(time.split(':')[1]));
-        
-        // Enviar dados para o servidor
-        fetch('seu_endpoint_de_agendamento', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                nome_agen: nome.value,
-                data_agen: startDate.toISOString()
-            }),
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Sucesso:', data);
-            // Aqui você pode adicionar lógica para mostrar uma mensagem de sucesso
-        })
-        .catch((error) => {
-            console.error('Erro:', error);
-        });
-    }
-});*/
 
 agendar.addEventListener("click", (event) => {
     event.preventDefault(); // Impede o envio padrão do formulário
@@ -269,9 +194,6 @@ agendar.addEventListener("click", (event) => {
         alert("Por favor, insira um nome."); // Mensagem de erro
         return; // Impede a execução do restante do código
     }
-
-    const concluido = document.getElementById('concluido');
-    concluido.style.display = 'flex';
 
     // Obtenha o dia, mês e ano selecionados
     const selectedDay = selectedDays[0]; // Supondo que apenas um dia é selecionado
@@ -300,11 +222,11 @@ agendar.addEventListener("click", (event) => {
         const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${startDateString}/${endDateString}&details=${encodeURIComponent(description)}`;
 
         // Adiciona um campo oculto ao formulário para enviar a data
-        const hiddenInput = document.createElement('input');
+        /*const hiddenInput = document.createElement('input');
         hiddenInput.type = 'hidden';
         hiddenInput.name = 'data_agen';
         hiddenInput.value = startDate.toISOString(); // Formato ISO para o banco de dados
-        document.querySelector('form').appendChild(hiddenInput);
+        document.querySelector('form').appendChild(hiddenInput);*/
 
         // Abra a URL em uma nova aba
         window.open(calendarUrl, '_blank');

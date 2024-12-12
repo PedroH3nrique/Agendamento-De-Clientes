@@ -45,19 +45,15 @@
 
     <form action="agendar.php" method="POST">
       <h1>Confirme o agendamento</h1>
-      <p class="confirmacaoHorario"></p>
+
+      <p class="data"></p>
+      <input type="text" name="data_agen" class="data" value="" style="display: none;">
+      <p class="horas"></p>
+      <input type="time" name="horario_agen" class="horas" value="" style="display: none;">
+
       <input type="text" name="nome_agen" id="nome" placeholder="Digite o seu nome">
+      <input type="submit" name="submit_agen" id="agendar" value="Agendar" >
 
-      <p id="concluido">
-        
-        Treino marcado com Êxito!!!
-
-        <img src="images/concluido.svg" alt="">
-      
-      </p>
-      
-
-      <button type="submit" name="submit_agen" id="agendar">Agendar</button>
     </form>
 
   </div>

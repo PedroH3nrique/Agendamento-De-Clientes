@@ -241,7 +241,7 @@ body {
   border: 2px solid transparent;
 }
 
-#confirmacao form button{
+#confirmacao form input[type="submit"]{
   padding: 7px;
   background-color: #4caf50;
   cursor: pointer;
@@ -250,7 +250,7 @@ body {
   border: none;
 }
 
-#confirmacao form button:hover{
+#confirmacao form input[type="submit"]:hover{
   background-color: #287c2b;
   transition: 0.4s ease-in-out;
 }
