@@ -180,62 +180,6 @@ body {
   display: flex;
 }
 
-/*.horario{
-  display: none;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-}
-
-.horario .ok{
-  margin: 15px 0;
-  width: 100%;
-  background-color: #4caf50;
-  color: white;
-  border-radius: 60px;
-  border: none;
-  outline: none;
-  padding: 5px 15px;
-  cursor: pointer;
-}
-
-.horario .ok:hover{
-  background-color: #328534;
-}
-
-#hora_agen{
-  background-color: white;
-  border: 1px solid black;
-  color: black;
-  margin: 0;
-  margin-left: 10px;
-  width: fit-content;
-  padding: 5px 10px;
-  height: fit-content;
-}
-
-.horario form{
-  margin: 0;
-  padding: 0;
-  background: white;
-}
-
-.horario form input{
-  width: 300px;
-  height: 30px;
-  padding: 5px 12px;
-  border-radius: 6px;
-  background-color: #ffffff;
-  color: rgb(0, 0, 0);
-  border: 2px solid #F56567;
-}
-
-.horario form input:focus{
-  box-shadow: 0 0 0 transparent;
-  transition: 0.3s ease-in-out;
-}*/
-
 .container {
   gap: 50px;
   overflow-y: scroll;
@@ -280,24 +224,24 @@ body {
   border-bottom: 1px solid black;
 }
 
-#confirmacao div{
+#confirmacao form{
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
-#confirmacao div input{
+#confirmacao form input{
   padding: 7px;
   outline: 3px solid transparent;
   border-radius: 7px;
 }
 
-#confirmacao div input:focus{
+#confirmacao form input:focus{
   outline: 3px solid #4caf50;
   border: 2px solid transparent;
 }
 
-#confirmacao div button{
+#confirmacao form button{
   padding: 7px;
   background-color: #4caf50;
   cursor: pointer;
@@ -306,7 +250,7 @@ body {
   border: none;
 }
 
-#confirmacao div button:hover{
+#confirmacao form button:hover{
   background-color: #287c2b;
   transition: 0.4s ease-in-out;
 }
@@ -352,7 +296,7 @@ body {
     border-bottom: 1px solid black;
   }
   
-  #confirmacao div{
+  #confirmacao form{
     display: flex;
     flex-direction: column;
     gap: 15px;

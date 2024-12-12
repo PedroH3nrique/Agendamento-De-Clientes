@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-image:linear-gradient(to right, #ffffff, #c9c9c9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.exit {
+  top: 0;
+  right: 0;
+  position: absolute;
+  border: none;
+  outline: none;
+  border-radius: 50%;
+  position: absolute;
+  padding: 5px;
+  cursor: pointer;
+  margin: 7px;
+  background-color: #5151516c;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.exit:hover{
+  background-color: #515151;
+  transition: 0.3s ease-in-out;
+}
+
+.exit img {
+  margin: 0;
+  width: 18px;
+}
+
+#sair{
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 20px;
+  background-color: red;
+  padding: 5px 15px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 18px;
+  text-align: left;
+}
+
+thead {
+  background-color: #4caf50;
+  color: white;
+}
+
+th, td {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+}
+
+tbody tr{
+  background-color: white;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tbody tr:hover {
+  background-color: #d4edda;
+}
+
+.detalhesHorarios{
+  position: relative;
+  width: 360px;
+  background-color: white;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 25px;
+  border-radius: 15px;
+  border: 5px solid #4caf50;
+}
+
+.detalhesHorarios p{
+  font-weight: bold;
+}
+
+#apagarAgendamento{
+  background-color: red;
+  color: white;
+  padding: 7px;
+  border: none;
+  outline: none;
+  border-radius: 15px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+#apagarAgendamento:active{
+  background-color: rgb(170, 0, 0);
+}
