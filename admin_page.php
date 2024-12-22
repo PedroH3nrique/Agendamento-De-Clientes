@@ -20,6 +20,11 @@ if ($conn->connect_error) {
     die("Conexão falhou: " . $conn->connect_error);
 }
 
+// Excluir agendamentos antigos
+$dataAtual = date('Y-m-d'); // Obtém a data atual no formato YYYY-MM-DD
+$sqlDelete = "DELETE FROM Agendamentos WHERE data_agen < '$dataAtual'";
+$conn->query($sqlDelete); // Executa a consulta de exclusão
+
 // Consulta para buscar os agendamentos
 $sql = "SELECT pk_cod_agen, nome_agen, DATE_FORMAT(data_agen, '%d/%m/%Y') as data, DATE_FORMAT(data_agen, '%H:%i') as hora FROM Agendamentos";
 $result = $conn->query($sql);
@@ -98,7 +103,7 @@ $result = $conn->query($sql);
             });
         });
 
-        exitButton.addEventListener("click", () => {
+ exitButton.addEventListener("click", () => {
             detalhesHorarios.style.display = 'none';
         });
 
